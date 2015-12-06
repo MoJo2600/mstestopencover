@@ -17,7 +17,7 @@
   <property name="artifact.dir" value="artifact" />
   <property name="reports.dir" value="${artifact.dir}\reports" />
   <!-- tools -->
-  <property name="msbuildpath" value="C:\Program Files (x86)\MSBuild\12.0\bin\MSBuild.exe" />
+  <property name="msbuildpath" value="C:\Program Files (x86)\MSBuild\14.0\bin\MSBuild.exe" />
   <property name="mstestpath" value="C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe" />
 
   <!-- set correct pathes automatically -->
@@ -62,12 +62,12 @@
     <mkdir dir="${output.dir}" />
     
     <!-- testing the first dll -->    
-    <property name="unittestdll" value="MSTestReport.Tests\bin\Debug\MSTestReport.Tests.dll" />
+    <property name="unittestdll" value="MSTestReport.Tests\bin\${build.configuration}\MSTestReport.Tests.dll" />
     <echo message="Testing: ${unittestdll}" />
     <call target="test.dll" />
   
     <!-- testing the second dll -->
-    <property name="unittestdll" value="MSTestReport.Additional.Tests\bin\Debug\MSTestReport.Additional.Tests.dll" />
+    <property name="unittestdll" value="MSTestReport.Additional.Tests\bin\${build.configuration}\MSTestReport.Additional.Tests.dll" />
     <echo message="Testing: ${unittestdll}" />
     <call target="test.dll" />
   
